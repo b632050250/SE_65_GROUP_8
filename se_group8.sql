@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 17, 2023 at 09:10 PM
+-- Generation Time: Mar 17, 2023 at 09:30 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -35,7 +35,7 @@ CREATE TABLE `addaddress` (
   `placeID` int(100) NOT NULL,
   `dogID` int(100) NOT NULL,
   `addaddressDescription` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -49,7 +49,7 @@ CREATE TABLE `checkapprove` (
   `userID` bigint(20) NOT NULL,
   `checkapproveTime` timestamp(6) NOT NULL DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6),
   `checkapproveStatusID` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -60,8 +60,7 @@ CREATE TABLE `checkapprove` (
 CREATE TABLE `checkapprovestatus` (
   `checkapprovestatusID` int(100) NOT NULL,
   `checkapprovestatusName` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 --
 -- Dumping data for table `checkapprovestatus`
 --
@@ -81,7 +80,14 @@ CREATE TABLE `district` (
   `districtID` int(100) NOT NULL,
   `districtName` varchar(100) NOT NULL,
   `provinceID` int(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `district`
+--
+
+INSERT INTO `district` (`districtID`, `districtName`, `provinceID`) VALUES
+(1, 'จตุจักร', 1);
 
 -- --------------------------------------------------------
 
@@ -95,7 +101,7 @@ CREATE TABLE `dog` (
   `subdistrictID` int(100) NOT NULL,
   `dogArea` varchar(100) NOT NULL,
   `dogpictureID` int(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -107,7 +113,7 @@ CREATE TABLE `dogimg` (
   `dogimgID` int(100) NOT NULL,
   `postcostID` int(100) NOT NULL,
   `dogimgPath` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -118,7 +124,7 @@ CREATE TABLE `dogimg` (
 CREATE TABLE `dogpicture` (
   `dogpictureID` int(100) NOT NULL,
   `dogpicturePath` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -133,7 +139,7 @@ CREATE TABLE `donation` (
   `donationAmount` int(100) NOT NULL,
   `donationTime` timestamp(6) NOT NULL DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6),
   `opendonateID` int(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -145,7 +151,7 @@ CREATE TABLE `group` (
   `groupID` int(100) NOT NULL,
   `groupOfDogID` int(100) NOT NULL,
   `dogID` int(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -158,7 +164,7 @@ CREATE TABLE `groupofdog` (
   `groupofdogName` varchar(100) NOT NULL,
   `placeID` int(100) NOT NULL,
   `description` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -169,7 +175,7 @@ CREATE TABLE `groupofdog` (
 CREATE TABLE `groupofpostpicture` (
   `groupofpostpictureID` int(100) NOT NULL,
   `groupofpostpicturePath` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -184,7 +190,7 @@ CREATE TABLE `opendonate` (
   `opendonateSlip` varchar(100) NOT NULL,
   `opendonateStartdate` timestamp(6) NOT NULL DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6),
   `opendonateStopdate` timestamp(6) NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -197,7 +203,7 @@ CREATE TABLE `place` (
   `placeName` varchar(100) NOT NULL,
   `subdistrictID` int(100) NOT NULL,
   `region` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -211,7 +217,7 @@ CREATE TABLE `post` (
   `userID` bigint(20) NOT NULL,
   `postTime` timestamp(6) NOT NULL DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6),
   `postofgroupID` int(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -225,7 +231,7 @@ CREATE TABLE `postcost` (
   `postcostContent` varchar(100) NOT NULL,
   `groupofpictureID` int(100) NOT NULL,
   `postcostStartdate` timestamp(6) NOT NULL DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -239,7 +245,7 @@ CREATE TABLE `postofgroup` (
   `groupofpostpictureID` int(100) NOT NULL,
   `groupofdogID` int(100) NOT NULL,
   `postofgroupTime` timestamp(6) NOT NULL DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -250,7 +256,14 @@ CREATE TABLE `postofgroup` (
 CREATE TABLE `province` (
   `provinceID` int(100) NOT NULL,
   `provinceName` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `province`
+--
+
+INSERT INTO `province` (`provinceID`, `provinceName`) VALUES
+(1, 'กรุงเทพ');
 
 -- --------------------------------------------------------
 
@@ -263,8 +276,7 @@ CREATE TABLE `report` (
   `userID` bigint(20) NOT NULL,
   `reportstatusID` int(100) NOT NULL,
   `reportTime` timestamp(6) NOT NULL DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 -- --------------------------------------------------------
 
 --
@@ -274,7 +286,7 @@ CREATE TABLE `report` (
 CREATE TABLE `reportstatus` (
   `reportstatusID` int(100) NOT NULL,
   `reportstatusName` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `reportstatus`
@@ -293,7 +305,7 @@ INSERT INTO `reportstatus` (`reportstatusID`, `reportstatusName`) VALUES
 CREATE TABLE `role` (
   `roleID` int(100) NOT NULL,
   `rolename` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `role`
@@ -315,7 +327,7 @@ CREATE TABLE `sentreport` (
   `userID` bigint(20) NOT NULL,
   `sentreportContent` varchar(100) NOT NULL,
   `sentreportTime` timestamp(6) NOT NULL DEFAULT current_timestamp(6) ON UPDATE current_timestamp(6)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -327,7 +339,14 @@ CREATE TABLE `subdistrict` (
   `subdistrictID` int(100) NOT NULL,
   `subdistrictName` varchar(100) NOT NULL,
   `districtID` int(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `subdistrict`
+--
+
+INSERT INTO `subdistrict` (`subdistrictID`, `subdistrictName`, `districtID`) VALUES
+(1, 'จตุจักร', 1);
 
 -- --------------------------------------------------------
 
@@ -340,7 +359,7 @@ CREATE TABLE `treateddog` (
   `postcostID` int(100) NOT NULL,
   `dogID` int(100) NOT NULL,
   `treateddogstatusID` int(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -351,7 +370,7 @@ CREATE TABLE `treateddog` (
 CREATE TABLE `treateddogstatus` (
   `treateddogstatusID` int(100) NOT NULL,
   `treateddogstatusName` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `treateddogstatus`
@@ -371,7 +390,7 @@ INSERT INTO `treateddogstatus` (`treateddogstatusID`, `treateddogstatusName`) VA
 CREATE TABLE `typetag` (
   `typetagID` int(100) NOT NULL,
   `typetagName` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -381,19 +400,25 @@ CREATE TABLE `typetag` (
 
 CREATE TABLE `users` (
   `id` bigint(20) NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `surname` varchar(100) NOT NULL,
+  `phonenumber` varchar(10) NOT NULL,
+  `email` varchar(255) NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(255) NOT NULL,
+  `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `fristname` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `lastname` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phonenumber` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `subdistrictID` int(100) NOT NULL,
   `roleID` int(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `surname`, `phonenumber`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `subdistrictID`, `roleID`) VALUES
+(1, 'Sasichar', 'Salabkaew', '0982636676', 'sasicharkanun@gmail.com', NULL, '$2y$10$717uN8qEzXtG09qCubdsjuYCxB8K0xC87uJqrfQoY66RQSA4Ukawm', NULL, '2023-03-17 13:30:33', '2023-03-17 13:30:33', 1, 1);
 
 --
 -- Indexes for dumped tables
@@ -619,7 +644,7 @@ ALTER TABLE `checkapprovestatus`
 -- AUTO_INCREMENT for table `district`
 --
 ALTER TABLE `district`
-  MODIFY `districtID` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `districtID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `dog`
@@ -697,7 +722,7 @@ ALTER TABLE `postofgroup`
 -- AUTO_INCREMENT for table `province`
 --
 ALTER TABLE `province`
-  MODIFY `provinceID` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `provinceID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `report`
@@ -727,7 +752,7 @@ ALTER TABLE `sentreport`
 -- AUTO_INCREMENT for table `subdistrict`
 --
 ALTER TABLE `subdistrict`
-  MODIFY `subdistrictID` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `subdistrictID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `treateddog`
@@ -751,7 +776,7 @@ ALTER TABLE `typetag`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
