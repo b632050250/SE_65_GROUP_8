@@ -54,6 +54,41 @@
                         </div>
 
                         <div class="row mb-3">
+                            <label for="provinceID" class="col-md-4 col-form-label text-md-end">{{ __('provinceID') }}</label>
+
+                            <div class="col-md-6">
+                                <select name="province" id="province">
+                                <option value="">-- Select Province --</option>
+                                    @foreach($province as $p)
+                                    <option value="{{$p->provinceID}}">{{$p->provinceName}}</option>
+                                    @endforeach
+                                </select>
+
+                                @error('provinceID')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="districtID" class="col-md-4 col-form-label text-md-end">{{ __('districtID') }}</label>
+
+                            <div class="col-md-6">
+                                <select name="district" id="district"><option value="">-- Select District --</option></select>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="subdistrictID" class="col-md-4 col-form-label text-md-end">{{ __('subdistrictID') }}</label>
+
+                            <div class="col-md-6">
+                                <select name="subdistrictID" id="subdistrict">
+                                <option value="">-- Select Subdistrict --</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
 
                             <div class="col-md-6">
@@ -102,4 +137,53 @@
         </div>
     </div>
 </div>
+@endsection
+@section('script')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+        $(document).ready(function () {
+            $('#province').on('change', function () {
+                var provinceID = this.value;
+                $('#district').html('');
+                //alert(provinceID);
+                $.ajax({
+                    url: "{{url('api/fetch-districts')}}",
+                    type: "POST",
+                    data: {
+                        provinceID: provinceID,
+                        _token: '{{csrf_token()}}'
+                    },
+                    dataType: 'json',
+                    success: function (result) {
+                        $('#district').html('<option value="">-- Select District --</option>');
+                        $.each(result.districts, function (key, value) {
+                            $("#district").append('<option value="' + value
+                                .districtID + '">' + value.districtName + '</option>');
+                        });
+                        $('#subdistrict').html('<option value="">-- Select Subdistrict --</option>');
+                    }
+                });
+            });
+            $('#district').on('change', function () {
+                var districtID = this.value;
+                $('#subdistrict').html('');
+                $.ajax({
+                    url: "{{url('api/fetch-subdistricts')}}",
+                    type: 'POST',
+                    data: {
+                        districtID: districtID,
+                        _token: '{{csrf_token()}}'
+                    },
+                    dataType: 'json',
+                    success: function (res) {
+                        $('#subdistrict').html('<option value="">-- Select Subdistrict --</option>');
+                        $.each(res.subdistricts, function (key, value) {
+                            $("#subdistrict").append('<option value="' + value
+                                .subdistrictID + '">' + value.subdistrictName + '</option>');
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 @endsection

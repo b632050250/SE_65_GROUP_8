@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DropdownController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +22,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('dropdown', [DropdownController::class, 'view'])->name('dropdownView');
+Route::post('api/fetch-districts', [DropdownController::class, 'getDistricts']);
+Route::post('api/fetch-subdistricts', [DropdownController::class, 'getSubdistricts']);
