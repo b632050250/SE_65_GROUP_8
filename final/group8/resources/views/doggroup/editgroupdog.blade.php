@@ -4,7 +4,7 @@
     <style>
         /* Apply styles to the div block */
         body {
-            background-color: #000CFF;
+            background-color: #243763;
             /* Set the background color to light gray */
         }
 
@@ -39,7 +39,7 @@
         }
 
         .edit-button {
-            background-color: #4CAF50;
+            background-color: #ff6e31;
             border: none;
             color: white;
             padding: 10px 20px;
@@ -75,7 +75,7 @@
                         <h2>{{ $group->groupOfDog->groupOfDogName }}</h2>
                         @if ($group->dog)
                             <img src="{{asset('images/dog/'.$group->dogpicture->dogpicturePath)}}" alt="Dog Picture"
-                                style="border: 5px solid #2712BB;">
+                                style="border: 5px solid #ff6e31;">
                                 {{-- <p>images/dog/{{$group->dogpicture->dogpicturePath}}</p> --}}
                             {{-- <p>{{$group->dog->dogpicture->dogpicturePath}}</p> --}}
                         @else
