@@ -56,7 +56,7 @@ class EditDogController extends Controller
             if ($request->file('dogPicture')->isValid()) {
                 // File upload is successful
                 $file = $request->file('dogPicture');
-                dd($file);
+                // dd($file);
                 $extension = $file->getClientOriginalExtension();
                 $filename = time() . '.' . $extension;
                 $filename = $filename;

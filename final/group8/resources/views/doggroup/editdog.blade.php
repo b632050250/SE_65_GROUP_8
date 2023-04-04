@@ -107,7 +107,7 @@
 
                 {{-- @method('PUT') --}}
                 <img src="{{ asset('images/dog/'.$dog->dogpicture->dogpicturePath) }}" alt="Dog Picture"
-                    style="border: 5px solid #2712BB;">
+                    style="border: 5px solid #ff6e31;">
 
                 <p></p>
                 <label for="dogPicture">Dog Picture:</label>
