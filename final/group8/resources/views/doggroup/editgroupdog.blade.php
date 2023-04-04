@@ -105,7 +105,7 @@
                                     href="{{ route('edit-dog', ['dogID' => $group->dog->dogID], ['groupID' => $group->groupID]) }}">แก้ไขข้อมูลหมา</a></button>
                             {{-- <a href="{{ route('edit-dog', ['dogID' => $group->dog->dogID], ['groupID' => $group->groupID]) }}">Edit
                             dog information</a> --}}
-
+                        </form>
                     </div>
                 {{-- </div> --}}
             @endforeach
