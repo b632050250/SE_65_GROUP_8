@@ -48,9 +48,12 @@ class EditGroupController extends Controller
 
         $dogInfo = DB::table('group')
             ->join('dog', 'group.dogID', '=', 'dog.dogID')
+            ->join('dogpicture', 'dog.dogpictureID', '=', 'dogpicture.dogpictureID')
             ->join('subdistrict', 'dog.subdistrictID', '=', 'subdistrict.subdistrictID')
             ->join('district', 'subdistrict.districtID', '=', 'district.districtID')
             ->join('province', 'district.provinceID', '=', 'province.provinceID')
+            ->join('groupofdog', 'groupofdog.groupofdogID', '=', 'group.groupOfDogID')
+            // ->select('group.*', 'dog.*', 'dogpicture.dogpicturePath', 'subdistrict.*', 'district.*', 'province.*', 'groupofdog.*')
             ->where('group.groupOfDogID', '=', $GroupID)
             ->get();
         // dd($dogInfo);

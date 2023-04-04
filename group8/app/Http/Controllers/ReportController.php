@@ -44,7 +44,6 @@ class ReportController extends Controller
     public function sented(Request $request)
     {
         $user = Auth::User();
-        dd($user->id);
         $report = new Report;
         $report->userID = $request->id;
         $report->reportstatusID=2;

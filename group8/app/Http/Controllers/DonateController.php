@@ -12,7 +12,7 @@ use DB;
 class DonateController extends Controller
 {
     public function index($id){
-        $data = DB::select('SELECT * FROM postcost as pc NATURAL JOIN post NATURAL JOIN postofgroup as pog JOIN groupofdog as god on god.groupofdogID=pog.groupofdogID NATURAL JOIN opendonate as od NATURAL JOIN place NATURAL JOIN dogimg NATURAL JOIN typetag NATURAL JOIN groupofpostpicture where pc.postcostID=?',[$id]);
+        $data = DB::select('SELECT * FROM postcost as pc NATURAL JOIN post NATURAL JOIN postofgroup as pog JOIN groupofdog as god on god.groupofdogID=pog.groupofdogID NATURAL JOIN opendonate as od NATURAL JOIN place NATURAL JOIN dogimg NATURAL JOIN typetag  join groupofpostpicture where post.postID=?',[$id]);
         $donate = DB::select('SELECT postcostAmount,sum(d.donationAmount) as total_donation_amount FROM donation as d NATURAL JOIN opendonate as od NATURAL JOIN postcost as pc where pc.postcostID = ? and d.checkapprovestatusID = 2  GROUP BY d.opendonateID,pc.postcostAmount;',[$id]);
         $alldonate = DB::select('SELECT postcostAmount,sum(d.donationAmount) as total_donation_amount FROM donation as d NATURAL JOIN opendonate as od NATURAL JOIN postcost as pc where pc.postcostID = ?  and d.checkapprovestatusID = 1  GROUP BY d.opendonateID,pc.postcostAmount;',[$id]);
         $am = $data[0]->postcostAmount ;

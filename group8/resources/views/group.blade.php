@@ -59,12 +59,19 @@
                 </div>
                 <p></p>
                 <div class="my-button1">
-                    <a href="#" onclick="window.history.back()">Back</a>
+                    <a href="#" onclick="myFunction1()">Back</a>
                 </div>
             </div>
 
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        function myFunction1() {
+            var conceptName = $('#groupofdog').find(":selected").val();
+            window.location.href = '{{url('/home')}}';
+        }
+    </script>
 
 
 </body>

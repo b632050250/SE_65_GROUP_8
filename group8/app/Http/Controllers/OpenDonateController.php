@@ -83,7 +83,7 @@ class OpenDonateController extends Controller
             $check->checkapproveStatusID = 1;
             $check->save();
         }
-        return redirect('/selectGroup');
+        return redirect('/home');
     }
     public function random($id)
     {
@@ -101,7 +101,7 @@ class OpenDonateController extends Controller
             $check->save();
         }
 
-        return redirect('/selectGroup');
+        return redirect('/home');
     }
 
     public function createFoodDonate(Request $request)
@@ -118,7 +118,6 @@ class OpenDonateController extends Controller
         $post->typetagID = 2;
         $post->userID = $user->id;
         $post->postofgroupID = $datap->postofgroupID;
-        $post->poststatusID=2;
         $post->save();
 
         $data = DB::table('post')->orderBy('postID','desc')->first();
@@ -177,7 +176,6 @@ class OpenDonateController extends Controller
         $post->typetagID = 1;
         $post->userID = $user->id;
         $post->postofgroupID = $datap->postofgroupID;
-        $post->poststatusID=2;
         $post->save();
 
         $data = DB::table('post')->orderBy('postID','desc')->first();
@@ -236,7 +234,6 @@ class OpenDonateController extends Controller
         $post->typetagID = 1;
         $post->userID = $user->id;
         $post->postofgroupID = $datap->postofgroupID;
-        $post->poststatusID=2;
         $post->save();
 
         $data = DB::table('post')->orderBy('postID','desc')->first();

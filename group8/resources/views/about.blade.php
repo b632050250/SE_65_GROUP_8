@@ -39,7 +39,7 @@
                         <th scope="col">ข้อความ</th>
                         <th scope="col">รูป</th>
                         <th scope="col">ปุ่ม</th>
-                        <th scope="col">groupofdogID</th>
+                        {{-- <th scope="col">groupofdogID</th> --}}
                     </tr>
 
 
@@ -58,7 +58,7 @@
                                 <input name="groupofdogID" class="text" type="hidden" value="{{ $name->groupOfDogID }}"
                                             id="id{{ $i }}">
                                 <td><button onClick="myFunction1({{ $i }})">ดูกลุ่ม</button></td>
-                                <td>{{ $name->groupOfDogID }}</td>
+                                {{-- <td>{{ $name->groupOfDogID }}</td> --}}
                             </tr>
                         @endforeach
                     </tbody>

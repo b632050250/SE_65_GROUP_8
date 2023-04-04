@@ -17,7 +17,7 @@ class GroupController extends Controller
         // dd($groupOfDogID);
         $gruopshow = DB::select('SELECT * FROM `groupofpostpicture` INNER JOIN postofgroup as pog JOIN groupofdog as grd on grd.groupofdogID= pog.postofgroupID INNER JOIN `group` on pog.groupofdogID=`group`.`groupID` INNER JOIN `groupofdog` on `group`.groupofdogID=`groupofdog`.`groupofdogID` INNER JOIN place on place.placeID = groupofdog.placeID WHERE `group`.groupOfDogID=?', [$groupOfDogID]);
 
-        // dd($gruopshow = $gruopshow[0]);
+        // dd($gruopshow);
 
         $gruopshow = $gruopshow[0];
         return view('group',['namesgroups'=>$gruopshow]);

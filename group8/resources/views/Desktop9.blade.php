@@ -52,7 +52,7 @@
 
                         <br><br>
                         <div align=center><input type="submit" value = "เพิ่มสัตว์">
-                        <div class="my-button" align=center><a href="/about" ><h3>เรียบร้อย</h3></a></div></div>
+                        <div class="my-button" align=center><a href="/home" ><h3>เรียบร้อย</h3></a></div></div>
 
                     </div>
                 </form>

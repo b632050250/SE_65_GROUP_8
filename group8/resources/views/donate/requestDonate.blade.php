@@ -12,13 +12,13 @@
           <p>ส่งคำขอการเปิดรับบริจาค</p>
         </div>
       </div>
-      <div class="content">
-      <?php 
+      <div class="content1">
+      <?php
           echo "<a href='".url('/requestDonate/select/'.$postcostID)."'><button>เลือกผู้อนุมัติเอง</button></a>";?>
-        <?php 
+        <?php
           echo "<a href='".url('/random/'.$postcostID)."'><button>ระบบสุ่มให้</button></a>";?>
       </div>
-      <div class="actionbox">
+      <div class="actionbox1">
         <a href="{{url('/selectGroup')}}"><button>ยกเลิก</button></a>
       </div>
     </div>
