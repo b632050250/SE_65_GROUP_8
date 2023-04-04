@@ -68,43 +68,49 @@
         <p></p>
         <h1>Dog group </h1>
         <div>
-            @foreach ($dogGroup as $group)
+            @foreach ($dogInfo as $group)
                 {{-- <div class="card"> --}}
                     <div class="dog">
 
-                        <h2>{{ $group->groupOfDog->groupOfDogName }}</h2>
-                        @if ($group->dog)
-                            <img src="{{asset('images/dog/'.$group->dogpicture->dogpicturePath)}}" alt="Dog Picture"
+                        {{-- <h2>{{ $group->groupofdogName  }}</h2> --}}
+
+                            <img src="{{asset('images/dog/'.$group->dogpicturePath)}}" alt="Dog Picture"
                                 style="border: 5px solid #ff6e31;">
                                 {{-- <p>images/dog/{{$group->dogpicture->dogpicturePath}}</p> --}}
                             {{-- <p>{{$group->dog->dogpicture->dogpicturePath}}</p> --}}
-                        @else
-                            <p>No picture available</p>
-                        @endif
+
                         <p></p>
-                        <p>ชื่อสุนัข: <b>{{ $group->dog->dogName }}</b></p>
-                        <p>จังหวัด: <b>{{ $dogInfo->provinceName }}</b></p>
-                        <p>อำเภอ: <b>{{ $dogInfo->districtName }} </b></p>
-                        <p>ตำบล: <b>{{ $dogInfo->subdistrictName }}</b></p>
+                        <p>ชื่อสุนัข: <b>{{ $group->dogName }}</b></p>
+                        <p>จังหวัด: <b>{{ $group->provinceName }}</b></p>
+                        <p>อำเภอ: <b>{{ $group->districtName }} </b></p>
+                        <p>ตำบล: <b>{{ $group->subdistrictName }}</b></p>
 
 
-                        <p>รายละเอียด: <b>{{ $group->dog->description }}</b></p>
-                        <p>สี: <b>{{ $group->dog->dogcolor }}</b></p>
+                        <p>รายละเอียด: <b>{{ $group->description }}</b></p>
+                        <p>สี: <b>{{ $group->dogcolor }}</b></p>
                         @foreach ($groups as $g)
                             @if ($g->groupID == $group->groupID)
                                 <p>กลุ่ม:<b>{{ $g->groupofdogName }} </b></p>
                             @endif
                         @endforeach
-                        <form
-                            action="{{ route('edit-dog.update', ['dogID' => $group->dog->dogID], ['groupID' => $group->groupID]) }}"
+                        {{-- <
+                            action="{{ route('edit-dog.update', ['dogID' => $group->dogID], ['groupID' => $group->groupID]) }}"
                             method="POST">
                             @csrf
                             <input type="hidden" name="_method" value="POST">
                             <input type="hidden" name="groupID" value="{{ $group->groupID }}">
                             <button type="submit" class="edit-button"><a
-                                    href="{{ route('edit-dog', ['dogID' => $group->dog->dogID], ['groupID' => $group->groupID]) }}">แก้ไขข้อมูลหมา</a></button>
+                                    href="{{ route('edit-dog', ['dogID' => $group->dogID], ['groupID' => $group->groupID]) }}">แก้ไขข้อมูลหมา</a></button>
                             {{-- <a href="{{ route('edit-dog', ['dogID' => $group->dog->dogID], ['groupID' => $group->groupID]) }}">Edit
                             dog information</a> --}}
+
+                         <form action="{{ route('edit-dog.update', ['dogID' => $group->dogID], ['groupID' => $group->groupID]) }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="_method" value="POST">
+                            <input type="hidden" name="groupID" value="{{ $group->groupID }}">
+                            <button type="submit" class="edit-button">
+                                <a href="{{ route('edit-dog', ['dogID' => $group->dogID]) }}">แก้ไขข้อมูลหมา</a>
+                            </button>
                         </form>
                     </div>
                 {{-- </div> --}}
