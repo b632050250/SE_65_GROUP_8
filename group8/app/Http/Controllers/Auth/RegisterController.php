@@ -74,6 +74,7 @@ class RegisterController extends Controller
             'subdistrictID' => $data['subdistrictID'],
             'roleID'=>1,
             'password' => Hash::make($data['password']),
+            'profilepath'=>"1.jpg",
         ]);
     }
 }

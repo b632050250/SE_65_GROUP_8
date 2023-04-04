@@ -24,7 +24,8 @@ class User extends Authenticatable
         'phonenumber',
         'password',
         'subdistrictID',
-        'roleID'
+        'roleID',
+        'profilepath'
     ];
 
     /**
